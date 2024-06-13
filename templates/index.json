@@ -15,6 +15,9 @@
         "slide_GkmxGx": {
           "type": "slide",
           "settings": {
+            "image1": "shopify:\/\/shop_images\/flatlay-of-jade-face-roller-laying-on-a-grey-stone.jpg",
+            "image2": "shopify:\/\/shop_images\/green-and-white-marbled-coloring.jpg",
+            "image3": "shopify:\/\/shop_images\/two-people-surfing-in-blue-choppy-water.jpg",
             "slide_title": "見出しが入ります。"
           }
         },
