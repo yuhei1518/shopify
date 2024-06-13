@@ -24,6 +24,9 @@
         "slide_tr4hKD": {
           "type": "slide",
           "settings": {
+            "image1": "shopify:\/\/shop_images\/silver-lamp-on-a-white-table-next-to-books.jpg",
+            "image2": "shopify:\/\/shop_images\/glass-with-iced-red-beverage-reflects-on-a-white-table.jpg",
+            "image3": "shopify:\/\/shop_images\/person-carries-a-wooden-box-full-of-dough-balls.jpg",
             "slide_title": "見出しが入ります。"
           }
         }
