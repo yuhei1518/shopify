@@ -6,6 +6,9 @@
         "slide_j3NkfV": {
           "type": "slide",
           "settings": {
+            "image1": "shopify:\/\/shop_images\/person-stands-on-rocks-poking-out-of-the-ocean-shoreline.jpg",
+            "image2": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+            "image3": "shopify:\/\/shop_images\/a-bridge-sitting-in-thick-pink-and-purple-fog.jpg",
             "slide_title": "見出しが入ります。"
           }
         },
