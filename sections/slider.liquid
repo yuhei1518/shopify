@@ -1,0 +1,494 @@
+<style>
+
+.slide-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 33%; /* 修正: 幅を100%に */
+    height: 100%;
+}
+
+.slide-images img {
+    width: 33%; /* 修正: 各画像の幅を調整 */
+    height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin: 0 2px; /* 修正: 画像の間のマージンを調整 */
+    
+}
+
+
+
+/* 再生ボタン */
+.stopbtn {
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(50%);
+    right: calc(50% - 220px / 2);
+    width: 44px;
+    height: 44px;
+    margin: 0px;
+    background-color: rgba(0,0,0,.4);
+    z-index: 1;
+}
+.stopbtn.stop {
+    display: inline-block;
+}
+.stopbtn.stop:before, .stopbtn.stop:after {
+    position: absolute;
+    top: 15px;
+    content: '';
+    width: 3px;
+    height: 15px;
+    background-color: #FFF;
+}
+.stopbtn.stop:before {
+    left: 55%;
+}
+.stopbtn.stop:after {
+    left: 35%;
+}
+.stopbtn.start {
+  display: inline-block;
+}
+.stopbtn.start:before {
+    position: absolute;
+    top: 15px;
+    right: 13px;
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 0 7px 14px;
+    border-color: transparent transparent transparent #FFF;
+}
+.stopbtn.start:after {
+    display: none;
+}
+@media only screen and (max-width: 750px) {
+.slider-other-menu{
+    height: 30px;
+}
+.swiper-pagination{
+    top: -2px;
+}
+.swiper-button-prev, .swiper-button-next{
+    bottom: -17px;
+}
+.stopbtn {
+    right: calc(50% - 195px / 2);
+    width: 30px;
+    height: 30px;
+}
+.stopbtn.stop:before, .stopbtn.stop:after{
+    top: 8px;
+}
+.stopbtn.start:before {
+    top: 9px;
+    right: 8px;
+}
+}
+
+/*ナビゲーションのカスタマイズ*/
+.slider-other-menu{
+	position: absolute;
+	bottom: 10px;
+	transform: translateX(50%);
+	right: 50%;
+	left: auto;
+	width: 151px;
+	height: 44px;
+	background-color: rgba(0,0,0,.4);
+	color: rgba(255,255,255,.5);
+	z-index: 1;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet{
+	margin: -4px 10px;
+}
+.swiper-pagination {
+	top: 4px;
+	left: 32px;
+}
+.swiper-pagination-bullet-active{
+	background: #fff;
+}
+.swiper-pagination-bullet{
+	background: rgb(255,255,255);
+}
+.swiper-button-prev, .swiper-button-next{
+	display: block !important; 
+	bottom: -10px;
+	top: auto;
+	color: rgba(255,255,255,.5);
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+	font-size:15px;
+}
+.swiper-button-prev{
+	left: calc(50% - 125px / 2);
+}
+.swiper-button-next{
+	right: calc(50% - 155px / 2);
+}
+
+.swiper-container{
+    max-height: 100vh;
+    transition: height .6s cubic-bezier(.44, .13, .48, .87);
+}
+.swiper-slide{
+    position: relative;
+}
+.swiper-slide img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+.slide-overlay::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(204,204,204,0.8);
+}
+.swiper-slide .slide-content{
+    position: absolute;
+    top: 50%;
+    padding: 20px;
+}
+@media only screen and (max-width: 750px) {
+    .swiper-slide .slide-content{
+        padding: 0px;
+    }
+}
+.swiper-slide .slide-content.center{
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+}
+.swiper-slide .slide-content.left{
+    left: 0%;
+    transform: translateX(0%) translateY(-50%);
+    text-align: left;
+}
+.swiper-slide .slide-content.right{
+    right: 0%;
+    transform: translateX(0%) translateY(-50%);
+    text-align: right;
+}
+.swiper-slide .slide-content h2{
+    color: #FFF !important;
+    margin: 0px;
+}
+.swiper-slide .slide-content p{
+    margin: 0px;
+}
+.slideshow--small {
+  height: 175px; 
+}
+@media only screen and (min-width: 750px) {
+    .slideshow--small{
+      height: 475px; 
+    } 
+}
+.slideshow--medium {
+    height: 270px; 
+}
+@media only screen and (min-width: 750px) {
+    .slideshow--medium{
+      height: 650px; 
+    }
+}
+.slideshow--large{
+    height: 375px; 
+}
+@media only screen and (min-width: 750px) {
+    .slideshow--large {
+      height: 775px; 
+    } 
+}
+.swiper-slide .slide-content h2.mega-title--large{
+    font-size: 45px;
+}
+.swiper-slide .slide-content p.mega-desc--large{
+    font-size: 22px;
+}
+@media only screen and (max-width: 750px) {
+    .swiper-slide .slide-content h2{
+        font-size: 18px;
+    }
+    .swiper-slide .slide-content p{
+        font-size: 12px;
+    }
+    .swiper-slide .slide-content h2.mega-title--large{
+        font-size: 22px;
+    }
+    .swiper-slide .slide-content p.mega-desc--large{
+        font-size: 14px;
+    }
+}
+.slideshow__btn{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: red;
+    color: #fff;
+    text-decoration: none;
+}
+@media only screen and (max-width: 750px) {
+    .slideshow__btn{
+        display: inline-block;
+        margin-top: 10px;
+        padding: 5px 10px;
+    }
+ }
+
+ </style>
+
+
+{%- if section.settings.slide_height == 'adapt' -%}
+  {%- assign first_block = section.blocks[0] -%}
+  {%- if first_block.settings.image.aspect_ratio == blank -%}
+    {%- assign min_aspect_ratio = 2.0 -%}
+  {%- else -%}
+    {%- assign min_aspect_ratio = first_block.settings.image.aspect_ratio -%}
+  {%- endif -%}
+  {% assign wrapper_height = 100 | divided_by: min_aspect_ratio %}
+{%- endif -%} 
+
+<div class="swiper-container slideshow--{{ section.settings.slide_height }}" {% if section.settings.slide_height == 'adapt' %} data-min-aspect-ratio="{{ min_aspect_ratio }}"
+   style="height: {{- wrapper_height -}}vw"{% endif %} id="sliderContainer">
+
+   <div class="swiper-wrapper">
+    <div class="slider-other-menu">
+	     <!-- 前ページボタン -->
+	        <div class="swiper-button-prev"></div>
+	        <div class="swiper-pagination"></div>
+	     <!-- 次ページボタン -->
+	        <div class="swiper-button-next"></div>
+    </div>
+        {% if section.settings.auto == true %}
+        <p class="stopbtn stop" id="playBtn"></p>
+        {% endif %}
+
+        {%- for block in section.blocks -%}
+        <div class="swiper-slide">
+            {% if section.settings.show_overlay == true %}
+                <div class="slide-overlay"></div>
+            {% endif %}
+            <div class="slide-images">
+                {%- if block.settings.image1 != blank -%}
+                    <img src="{{ block.settings.image1 | img_url: '2049x' }}" loading="lazy">
+                {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+
+                {%- if block.settings.image2 != blank -%}
+                    <img src="{{ block.settings.image2 | img_url: '2049x' }}" loading="lazy">
+                {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+
+                {%- if block.settings.image3 != blank -%}
+                    <img src="{{ block.settings.image3 | img_url: '2049x' }}" loading="lazy">
+                {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+            </div>
+            <div class="slide-content {% if section.settings.text_alignment == 'center center' %} center {% endif %}{% if section.settings.text_alignment == 'left center' %} left {% endif %}{% if section.settings.text_alignment == 'right center' %} right {% endif %}">
+                <h1 class="{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ block.settings.slide_title }}</h1>
+            </div>
+        </div>
+        {%- endfor -%}
+   </div>
+ </div>
+
+<script type="text/javascript">  
+
+var sliderContainer = document.getElementById('sliderContainer');
+var minAspectRatio = sliderContainer.getAttribute('data-min-aspect-ratio');
+
+function sliderChangeHeight() {
+    if (minAspectRatio) {
+        sliderContainer.style.height = document.documentElement.offsetWidth / minAspectRatio + 'px';
+    }
+}
+
+window.onresize = function() {
+    sliderChangeHeight();
+};
+
+const swiper = new Swiper('.swiper-container', {
+    autoplay: {
+        delay: {{ section.settings.speed }} * 1000,
+    },
+    direction: 'horizontal',
+    effect: 'fade',
+    loop: true,
+    slidesPerView: 1,
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    }
+});
+
+let button = document.getElementById('playBtn');
+button.addEventListener('click', buttonClick);
+
+function buttonClick() {
+    var _class = this.getAttribute('class');
+    if (_class.includes('stop')) {
+        this.classList.add("start");
+        this.classList.remove("stop");
+        swiper.autoplay.stop();
+    } else {
+        this.classList.add("stop");
+        this.classList.remove("start");
+        swiper.autoplay.start();
+    }
+}
+
+</script>
+
+
+
+
+{% schema %}
+{
+    "name": "スライダーsample",
+    "class": "slide-wrap",
+    "settings": [
+        {
+            "type": "select",
+            "id": "slide_height",
+            "label": "スライドの高さ",
+            "default": "adapt",
+            "options": [
+                {
+                    "label": "最初の画像の高さに対応",
+                    "value": "adapt"
+                },
+                {
+                    "label": "小",
+                    "value": "small"
+                },
+                {
+                    "label": "中",
+                    "value": "medium"
+                },
+                {
+                    "label": "大",
+                    "value": "large"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_size",
+            "label": "文字サイズ",
+            "options": [
+                {
+                    "label": "中",
+                    "value": "medium"
+                },
+                {
+                    "label": "大",
+                    "value": "large"
+                }
+            ]
+        },
+        {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "テキストアラインメント",
+            "default": "center center",
+            "options": [
+                {
+                    "label": "中心",
+                    "value": "center center"
+                },
+                {
+                    "label": "左中央",
+                    "value": "left center"
+                },
+                {
+                    "label": "右中央",
+                    "value": "right center"
+                }
+            ]
+        },
+        {
+            "type": "checkbox",
+            "id": "show_overlay",
+            "label": "オーバーレイを表示する",
+            "default": true
+        },
+        {
+            "type": "checkbox",
+            "id": "auto",
+            "label": "スライドの自動切り替え",
+            "default": false
+        },
+        {
+            "type": "range",
+            "id": "speed",
+            "label": "スライドの変更する間隔",
+            "max": 9,
+            "min": 1,
+            "step": 2,
+            "unit": "秒",
+            "default": 5
+        }
+    ],
+    "blocks": [
+        {
+            "type": "slide",
+            "name": "画像スライド",
+            "limit": 3,
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image1",
+                    "label": "画像1"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image2",
+                    "label": "画像2"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "image3",
+                    "label": "画像3"
+                },
+                {
+                    "type": "text",
+                    "id": "slide_title",
+                    "default": "見出しが入ります。",
+                    "label": "見出し"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "スライダー画像",
+            "category": "画像",
+            "settings": {
+                "auto": false,
+                "speed": 5
+            }
+        }
+    ]
+}
+{% endschema %}
