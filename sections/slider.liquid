@@ -7,14 +7,17 @@
     width: 33%; /* 修正: 幅を100%に */
     height: 100%;
 }
-
 .slide-images img {
     width: 33%; /* 修正: 各画像の幅を調整 */
     height: 100%;
     max-height: 100%;
     object-fit: cover;
-    margin: 0 2px; /* 修正: 画像の間のマージンを調整 */
-    
+    margin: 0 2px; /* 修正: 画像の間のマージンを調整 */  
+}
+.slider-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 
@@ -250,6 +253,7 @@
 
  </style>
 
+<h2 class="slider-title">{{ section.settings.slide_title }}</h2>
 
 {%- if section.settings.slide_height == 'adapt' -%}
   {%- assign first_block = section.blocks[0] -%}
@@ -432,6 +436,12 @@ function buttonClick() {
             "id": "show_overlay",
             "label": "オーバーレイを表示する",
             "default": true
+        },
+        {
+            "type": "text",
+            "id": "slide_title",
+            "label": "セクションタイトル",
+            "default": "スライドショー"
         },
         {
             "type": "checkbox",
